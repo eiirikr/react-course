@@ -14,12 +14,11 @@ export default function App() {
   }
 
   function generateAllNewDice() {
-    const newDice = [];
-    for (let i = 0; i < 10; i++) {
-      const randomNumber = Math.ceil(Math.random() * 6);
-      newDice.push({ value: randomNumber, isHeld: false, id: nanoid() });
-    }
-    return newDice;
+    return new Array(10).fill(0).map(() => ({
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false,
+      id: nanoid(),
+    }));
   }
 
   return (
