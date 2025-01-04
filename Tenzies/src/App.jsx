@@ -19,11 +19,15 @@ export default function App() {
   }
 
   function rollDice() {
-    setDice((oldDice) =>
-      oldDice.map((die) =>
-        !die.isHeld ? { ...die, value: Math.ceil(Math.random() * 6) } : die
-      )
-    );
+    if (!gameWon) {
+      setDice((oldDice) =>
+        oldDice.map((die) =>
+          !die.isHeld ? { ...die, value: Math.ceil(Math.random() * 6) } : die
+        )
+      );
+    } else {
+      setDice(generateAllNewDice());
+    }
   }
 
   function hold(id) {
