@@ -28,7 +28,11 @@ export default function AssemblyEndgame() {
   });
 
   const letterElements = currentWord.split("").map((letter, index) => {
-    return <span key={index}>{letter.toUpperCase()}</span>;
+    return (
+      <span key={index}>
+        {guessedLetters.includes(letter) ? letter.toUpperCase() : ""}
+      </span>
+    );
   });
 
   const keyboardElements = alphabet.split("").map((letter, index) => {
